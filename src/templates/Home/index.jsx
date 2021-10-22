@@ -1,14 +1,19 @@
 import { useCallback, useEffect, useState } from 'react';
 import './style.css';
 
+// Componentes
 import { Button } from '../../components/Button';
 import { TextInput } from '../../components/TextInput';
+import { Posts } from '../../components/Posts';
+
+// Funções
+import { loadPosts } from '../../utils/load-post';
 
 export const Home = () => {
   const [posts, setPosts] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
   const [page, setPage] = useState(0);
-  const [postsPerPage] = useState(2);
+  const [postsPerPage] = useState(8);
   const [searchValue, setSearchValue] = useState('');
 
   const handleLoadPosts = useCallback(async (page, postsPerPage) => {
